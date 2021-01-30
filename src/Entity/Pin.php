@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pin
 {
+    use Timestampable;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -29,15 +31,15 @@ class Pin
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    private $createdAt;
+    // /**
+    //  * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+    //  */
+    // private $createdAt;
 
-    /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    private $updatedAt;
+    // /**
+    //  * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+    //  */
+    // private $updatedAt;
 
     public function getId(): ?int
     {
@@ -68,39 +70,39 @@ class Pin
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
+    // public function getCreatedAt(): ?\DateTimeInterface
+    // {
+    //     return $this->createdAt;
+    // }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
+    // public function setCreatedAt(\DateTimeInterface $createdAt): self
+    // {
+    //     $this->createdAt = $createdAt;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
+    // public function getUpdatedAt(): ?\DateTimeInterface
+    // {
+    //     return $this->updatedAt;
+    // }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+    // public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    // {
+    //     $this->updatedAt = $updatedAt;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function updateTimestamps()
-    {
-        if($this->setCreatedAt() === null){
-            $this->setCreatedAt(new \DateTimeImmutable);
-        }
-        $this->setUpdatedAt(new \DateTimeImmutable);
-    }
+    // /**
+    //  * @ORM\PrePersist
+    //  * @ORM\PreUpdate
+    //  */
+    // public function updateTimestamps()
+    // {
+    //     if($this->setCreatedAt() === null){
+    //         $this->setCreatedAt(new \DateTimeImmutable);
+    //     }
+    //     $this->setUpdatedAt(new \DateTimeImmutable);
+    // }
 }
