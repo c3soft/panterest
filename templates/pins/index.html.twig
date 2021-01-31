@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/base.html.twig' %}
 
 {% block title %}Panterest
 {% endblock %}
@@ -9,7 +9,7 @@
 	{% for pin in pins %}
 		<h2><a href="{{ path('app_pins_show',{id:pin.id}) }}">{{pin.title}}</a></h2>
 		<p>{{ pin.description|u.truncate(10, '...', false) }}</p>
-		<p>Submitted : {{ pin.createdAt|ago}}</p>
+		<p>Submitted : {{ pin.createdAt|ago(locale='fr') }}</p>
 	{% endfor %}
 
 

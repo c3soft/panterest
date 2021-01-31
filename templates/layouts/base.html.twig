@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}{% endblock %}
+        <style>
+            .alert{
+                padding: 10px;
+                color: #fff;
+                text-align: center;
+            }
+
+            .alert-success{
+                background-color: green;
+            }
+
+            .alert-info{
+                background-color: blue;
+            }
+
+            .alert-error{
+                background-color: red;
+            }
+        </style>
+
+	</head>
+	<body>
+		<nav>
+			<li>
+				<a href="{{ path('app_home') }}">Home</a>
+			</li>
+			<li>
+				<a href="{{ path('app_pins_create') }}">New Pin</a>
+			</li>
+		</nav>
+
+        {{ include('layouts/partials/_flash_message.html.twig')}}
+
+		{% block body %}{% endblock %}
+		{% block javascripts %}{% endblock %}
+	</body>
+</html>
